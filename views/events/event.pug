@@ -3,49 +3,52 @@ extends ../layout
 block content
     .container
         .event-details-page
-            .event-header
-                .header-top
-                    .back-link
-                        a.btn.btn-link(href="/events")
-                            i.fas.fa-arrow-left
-                            span Back to Events
-                    .event-status
-                        span.status-badge
-                            i.fas.fa-clock
-                            span Upcoming
-                h1.event-title= event.title
-            
-            .event-details-card
-                .event-info-grid
-                    .info-item
-                        .info-label
-                            i.fas.fa-calendar-alt
-                            span Date & Time
-                        .info-value= new Date(event.date).toLocaleString('en-US', {year: 'numeric', month: 'long',day: 'numeric', hour: '2-digit',minute: '2-digit'})                    
-                    .info-item
-                        .info-label
-                            i.fas.fa-map-marker-alt
-                            span Location
-                        .info-value= event.location
-                    
-                    .info-item.full-width
-                        .info-label
-                            i.fas.fa-align-left
-                            span Description
-                        .info-value= event.description
-                    
-                    .info-item
-                        .info-label
-                            i.fas.fa-clock
-                            span Created
-                        .info-value= new Date(event.created_at).toLocaleString('en-US', {year: 'numeric', month: 'long',day: 'numeric', hour: '2-digit',minute: '2-digit'})
-            .event-actions
-                .action-group.primary-actions
+            .page-header
+                .back-link
+                    a.btn.btn-link(href="/events")
+                        i.fas.fa-arrow-left
+                        span Back to Events
+                .header-actions
                     a.btn.btn-primary(href=`/events/${event.id}/edit`)
                         i.fas.fa-edit
                         span Edit Event
-                .action-group.danger-actions
-                    form.delete-form(action=`/events/${event.id}?_method=DELETE` method="POST")
-                        button.btn.btn-danger(type="submit" onclick="return confirm('Are you sure you want to delete this event? This action cannot be undone.')")
+                    form.delete-form(action=`/events/${event.id}/delete`, method="POST", onsubmit="return confirm('Are you sure you want to delete this event?')")
+                        button.btn.btn-danger(type="submit")
                             i.fas.fa-trash
-                            span Delete Event 
+                            span Delete Event
+            
+            .event-card.event-details
+                .event-header
+                    .event-date
+                        - const date = new Date(event.date)
+                        .date-day= date.getDate()
+                        .date-month= date.toLocaleString('default', { month: 'short' })
+                        .date-year= date.getFullYear()
+                    .event-time
+                        i.fas.fa-clock
+                        span= date.toLocaleTimeString('default', { hour: '2-digit', minute: '2-digit' })
+                
+                .event-content
+                    h1.event-title= event.title
+                    
+                    .event-info
+                        .info-item
+                            i.fas.fa-map-marker-alt
+                            span.label Location:
+                            span.value= event.location
+                        
+                        .info-item
+                            i.fas.fa-calendar-alt
+                            span.label Date:
+                            span.value= date.toLocaleDateString('default', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })
+                    
+                    .event-description
+                        h2 Description
+                        p= event.description
+                    
+                    if event.created_at
+                        .event-meta
+                            - const createdDate = new Date(event.created_at)
+                            p.created-at
+                                i.fas.fa-clock
+                                span Created: #{createdDate.toLocaleDateString('default', { year: 'numeric', month: 'long', day: 'numeric' })} 

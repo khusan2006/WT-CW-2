@@ -34,7 +34,7 @@ block content
                                 a.btn.btn-primary(href=`/events/${event.id}/edit`)
                                     i.fas.fa-edit
                                     span Edit
-                                form.delete-form(action=`/events/${event.id}?_method=DELETE`, method="POST")
+                                form.delete-form(action=`/events/${event.id}/delete`, method="POST")
                                     button.btn.btn-danger(type="submit")
                                         i.fas.fa-trash
                                         span Delete
