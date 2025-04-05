@@ -260,3 +260,301 @@ footer {
   font-size: 1.2rem;
   color: #999;
 }
+
+.form-page {
+  max-width: 800px;
+  margin: 4rem auto;
+  padding: 3rem;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.page-header {
+  margin-bottom: 3rem;
+}
+
+.back-link a {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  color: #4CAF50;
+  text-decoration: none;
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+
+.back-link a:hover {
+  color: #388E3C;
+}
+
+.error-container {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background-color: #ffebee;
+  border-radius: 5px;
+  border-left: 4px solid #f44336;
+}
+
+.error-message {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: #d32f2f;
+  font-size: 1.4rem;
+}
+
+.form-container {
+  background-color: #fff;
+}
+
+.event-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.form-group label {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.6rem;
+  color: #333;
+  font-weight: 500;
+}
+
+.form-group label i {
+  color: #4CAF50;
+}
+
+.form-control {
+  padding: 1.2rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1.4rem;
+  transition: border-color 0.3s ease;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: #4CAF50;
+  box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.1);
+}
+
+textarea.form-control {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.form-actions {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid #eee;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.2rem 2.4rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.4rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn i {
+  font-size: 1.6rem;
+}
+
+.btn-primary {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #388E3C;
+}
+
+.btn-secondary {
+  background-color: #f5f5f5;
+  color: #666;
+}
+
+.btn-secondary:hover {
+  background-color: #e0e0e0;
+}
+
+.btn-link {
+  background: none;
+  padding: 0;
+}
+
+
+.events-page {
+    padding: 4rem 0;
+}
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4rem;
+}
+
+.page-title {
+    font-size: 3rem;
+    color: #333;
+    margin: 0;
+}
+
+.events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.event-card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.event-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.event-date {
+    background: #4CAF50;
+    color: white;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.date-day {
+    font-size: 2.4rem;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.date-month {
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    margin-top: 0.5rem;
+}
+
+.event-content {
+    padding: 2rem;
+}
+
+.event-title {
+    font-size: 1.8rem;
+    color: #333;
+    margin: 0 0 1.5rem 0;
+}
+
+.event-details {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+    color: #666;
+    font-size: 1.4rem;
+}
+
+.event-location, .event-time {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.event-location i, .event-time i {
+    color: #4CAF50;
+}
+
+.event-description {
+    font-size: 1.4rem;
+    color: #666;
+    margin: 0;
+    line-height: 1.6;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.event-actions {
+    display: flex;
+    gap: 1rem;
+    padding: 1.5rem 2rem;
+    background: #f8f8f8;
+    border-top: 1px solid #eee;
+}
+
+.event-actions .btn {
+    flex: 1;
+    justify-content: center;
+    padding: 0.8rem;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    color: white;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+}
+
+.delete-form {
+    flex: 1;
+}
+
+.delete-form .btn {
+    width: 100%;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 6rem 2rem;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.empty-state i {
+    font-size: 5rem;
+    color: #4CAF50;
+    margin-bottom: 2rem;
+}
+
+.empty-state h2 {
+    font-size: 2.4rem;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.empty-state p {
+    font-size: 1.6rem;
+    color: #666;
+    margin-bottom: 2rem;
+}

@@ -1,0 +1,48 @@
+extends ../layout
+
+block content
+    .events-page
+        .container
+            .page-header
+                h1.page-title #{title} 
+                a.btn.btn-primary(href="/events/new")
+                    i.fas.fa-plus
+                    span Create New Event
+            
+            if events && events.length > 0
+                .events-grid
+                    each event in events
+                        .event-card
+                            .event-date
+                                - const date = new Date(event.date)
+                                .date-day= date.getDate()
+                                .date-month= date.toLocaleString('default', { month: 'short' })
+                            .event-content
+                                h3.event-title= event.title
+                                .event-details
+                                    .event-location
+                                        i.fas.fa-map-marker-alt
+                                        span= event.location
+                                    .event-time
+                                        i.fas.fa-clock
+                                        span= date.toLocaleTimeString('default', { hour: '2-digit', minute: '2-digit' })
+                                p.event-description= event.description
+                            .event-actions
+                                a.btn.btn-secondary(href=`/events/${event.id}`) 
+                                    i.fas.fa-eye
+                                    span View
+                                a.btn.btn-primary(href=`/events/${event.id}/edit`)
+                                    i.fas.fa-edit
+                                    span Edit
+                                form.delete-form(action=`/events/${event.id}?_method=DELETE`, method="POST")
+                                    button.btn.btn-danger(type="submit")
+                                        i.fas.fa-trash
+                                        span Delete
+            else
+                .empty-state
+                    i.fas.fa-calendar-alt
+                    h2 No Events Found
+                    p Create your first event to get started
+                    a.btn.btn-primary(href="/events/new")
+                        i.fas.fa-plus
+                        span Create New Event 
