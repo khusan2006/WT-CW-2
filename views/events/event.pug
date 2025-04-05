@@ -1,0 +1,54 @@
+extends ../layout
+
+block content
+    .container
+        .event-details-page
+            .page-header
+                .back-link
+                    a.btn.btn-link(href="/events")
+                        i.fas.fa-arrow-left
+                        span Back to Events
+                .header-actions
+                    a.btn.btn-primary(href=`/events/${event.id}/edit`)
+                        i.fas.fa-edit
+                        span Edit Event
+                    form.delete-form(action=`/events/${event.id}/delete`, method="POST", onsubmit="return confirm('Are you sure you want to delete this event?')")
+                        button.btn.btn-danger(type="submit")
+                            i.fas.fa-trash
+                            span Delete Event
+            
+            .event-card.event-details
+                .event-header
+                    .event-date
+                        - const date = new Date(event.date)
+                        .date-day= date.getDate()
+                        .date-month= date.toLocaleString('default', { month: 'short' })
+                        .date-year= date.getFullYear()
+                    .event-time
+                        i.fas.fa-clock
+                        span= date.toLocaleTimeString('default', { hour: '2-digit', minute: '2-digit' })
+                
+                .event-content
+                    h1.event-title= event.title
+                    
+                    .event-info
+                        .info-item
+                            i.fas.fa-map-marker-alt
+                            span.label Location:
+                            span.value= event.location
+                        
+                        .info-item
+                            i.fas.fa-calendar-alt
+                            span.label Date:
+                            span.value= date.toLocaleDateString('default', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })
+                    
+                    .event-description
+                        h2 Description
+                        p= event.description
+                    
+                    if event.created_at
+                        .event-meta
+                            - const createdDate = new Date(event.created_at)
+                            p.created-at
+                                i.fas.fa-clock
+                                span Created: #{createdDate.toLocaleDateString('default', { year: 'numeric', month: 'long', day: 'numeric' })} 

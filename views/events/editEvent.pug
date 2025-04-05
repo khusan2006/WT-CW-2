@@ -1,0 +1,77 @@
+extends ../layout
+
+block content
+    .container
+        .form-page
+            .page-header
+                .back-link
+                    a.btn.btn-link(href=`/events/${event.id}`)
+                        i.fas.fa-arrow-left
+                        span Back to Event Details
+                h1.page-title Edit Event
+            
+            if errors
+                .error-container
+                    each error in errors
+                        .error-message
+                            i.fas.fa-exclamation-circle
+                            span= error.msg
+            
+            .form-container
+                form.event-form(action=`/events/${event.id}/edit` method="POST")
+                    .form-group
+                        label(for="title")
+                            i.fas.fa-heading
+                            span Event Title
+                        input#title.form-control(
+                            type="text"
+                            name="title"
+                            value=event.title
+                            required
+                            minlength="3"
+                            placeholder="Enter event title"
+                        )
+                    
+                    .form-group
+                        label(for="description")
+                            i.fas.fa-align-left
+                            span Description
+                        textarea#description.form-control(
+                            name="description"
+                            required
+                            rows="4"
+                            placeholder="Describe your event"
+                        )= event.description
+                    
+                    .form-row
+                        .form-group
+                            label(for="date")
+                                i.fas.fa-calendar-alt
+                                span Date & Time
+                            - const formattedDate = new Date(event.date).toISOString().slice(0, 16)
+                            input#date.form-control(
+                                type="datetime-local"
+                                name="date"
+                                value=formattedDate
+                                required
+                            )
+                        
+                        .form-group
+                            label(for="location")
+                                i.fas.fa-map-marker-alt
+                                span Location
+                            input#location.form-control(
+                                type="text"
+                                name="location"
+                                value=event.location
+                                required
+                                placeholder="Event location"
+                            )
+                    
+                    .form-actions
+                        button.btn.btn-primary(type="submit")
+                            i.fas.fa-save
+                            span Save Changes
+                        a.btn.btn-secondary(href=`/events/${event.id}`)
+                            i.fas.fa-times
+                            span Cancel 

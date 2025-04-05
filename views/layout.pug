@@ -1,0 +1,39 @@
+doctype html
+html
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Event Planner
+    link(rel="stylesheet", href="/styles/style.css")
+  body
+    header
+      div.container.header_container  
+        div.logo Event Planner
+        nav
+            a(href="#") Home
+            a(href="#") About
+            a(href="#") Services
+            a(href="#") Contact
+        div.cta-buttons
+            a.btn(href="/events/new") Create Event
+    main 
+        block content 
+    footer
+      .container
+        .footer-content
+          .quick-links
+            h3 Quick Links
+            ul
+              li: a(href="#") Home
+              li: a(href="#") Events
+              li: a(href="#") Create Event
+          .contact-info
+            h3 Contact
+            p
+              span 📧 
+              a(href="mailto:support@eventplanner.com") support@eventplanner.com
+            p
+              span 📞 
+              | +1 234 567 8900
+        .disclaimer
+          p This web application was created to fulfill Web Technology module's requirements and does not represent an actual company or service.       
