@@ -5,17 +5,18 @@ html
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     title Event Planner
     link(rel="stylesheet", href="/styles/style.css")
+    script(src="/javascripts/formValidation.js" defer)
   body
     header
       div.container.header_container  
         div.logo Event Planner
         nav
-            a(href="#") Home
-            a(href="#") About
-            a(href="#") Services
+            a(href="/") Home
+            a(href="/events") Events
+            a(href="/events/new") Create Event
             a(href="#") Contact
         div.cta-buttons
-            a.btn(href="/events/new") Create Event
+            a.btn(href="/events/new") ➕ Create Event
     main 
         block content 
     footer
@@ -24,9 +25,9 @@ html
           .quick-links
             h3 Quick Links
             ul
-              li: a(href="#") Home
-              li: a(href="#") Events
-              li: a(href="#") Create Event
+              li: a(href="/") Home
+              li: a(href="/events") Events
+              li: a(href="/events/new") Create Event
           .contact-info
             h3 Contact
             p
