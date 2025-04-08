@@ -19,7 +19,12 @@ Make sure you have **Node.js** installed on your computer.
    ```
    in the root directory of the project.
 
-2. Start the app by running:
+2. Create a `.env` file in the root directory of the project and add the following environment variable:
+   ```bash
+   MONGODB_URI=mongodb+srv://wiut-student:tV4ddnEa3sE0GwVo@cluster0.wdrz0zs.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0 
+   ```
+
+3. Start the app by running:
    ```bash
    npm run start
    ```
@@ -34,6 +39,8 @@ Make sure you have **Node.js** installed on your computer.
 - **express-validator**: `^7.2.1`
 - **pug**: `^3.0.3`
 - **sqlite3**: `^5.1.7`
+- **dotenv**: `^16.4.5`
+- **mongoose**: `^8.2.0`
 
 ### Dev Dependencies
 - **nodemon**: `^3.1.9`
@@ -43,17 +50,18 @@ Make sure you have **Node.js** installed on your computer.
 ## Project Structure
 
 - **controllers/**: Contains all the controllers for the app
+- **models/**: Contains all the models created on mongoDB for the app
 - **public/**: Contains all the static files for the app
-  - **javascripts/**: JavaScript files
-  - **styles/**: CSS files
-- **routes/**: Contains all the routes for the app
-- **services/**: Contains all the services for the app
-- **views/**: Contains all the views for the app
+  - **javascripts/**: JavaScript files for client-side logic and validation
+  - **styles/**: CSS files for styling the app
+- **routes/**: handles routing for the app
+- **services/**: Contains all the services for the app like database connection, server-side validation and error handling
+- **views/**: Contains all the pug templates to show the UI based on the routes
 - **app.js**: Contains the main code for the app
 
 ---
 
 ## Links
 
-- **GitHub Repository**: [wt-cw-2](https://github.com/aleksandar-aleksic/wt-cw-2)
-- **Hosted App**: [Event Planner](https://event-planner-aleksandar-aleksic.vercel.app)
+- **GitHub Repository**: [wt-cw-2](https://github.com/wt-00017694/WT-CW-2)
+- **Hosted App**: [Event Planner](https://wt-cw-2.vercel.app)
